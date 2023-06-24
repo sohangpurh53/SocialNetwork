@@ -1,0 +1,44 @@
+.conversation-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .conversation {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .conversation-info {
+    margin-left: 10px;
+  }
+  
+  .conversation-info h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .latest-message {
+    color: #888;
+    font-size: 14px;
+  }
+  
+  .no-conversations {
+    color: #888;
+    margin-top: 10px;
+  }
+  
+  /* Additional styling */
+  h2 {
+    margin-top: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }

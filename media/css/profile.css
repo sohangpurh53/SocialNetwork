@@ -1,0 +1,131 @@
+/* profile.css */
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+
+.profile h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.profile p {
+  margin-bottom: 5px;
+}
+
+.profile .messages {
+  list-style: none;
+  padding: 0;
+}
+
+.profile .messages li {
+  margin-bottom: 5px;
+}
+
+.profile .success {
+  color: green;
+}
+
+.profile .error {
+  color: red;
+}
+
+.profile .info {
+  color: blue;
+}
+
+.profile .warning {
+  color: orange;
+}
+
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  grid-gap: 10px;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.post-actions button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.post-actions .btn-like {
+  color: green;
+}
+
+.post-actions .btn-dislike {
+  color: red;
+}
+
+.post-actions .btn-comment {
+  color: blue;
+}
+
+.Unfollow{
+  text-decoration: none;
+  background-color: #f44336;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+.Follow{
+  text-decoration: none;
+  background-color: #337ab7;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+
+.date {
+  font-size: 12px;
+  color: gray;
+}
+/* .username{
+font-size: larger;
+} */
+
+.followerlist{
+  text-decoration: none;
+}

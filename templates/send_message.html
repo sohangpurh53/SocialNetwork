@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="/css/sendmsg.css">
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Send Message to {{ receiver.username }}</h1>
+  <form method="post" action="{% url 'send_message' receiver_id=receiver.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send</button>
+  </form>
+{% endblock %}

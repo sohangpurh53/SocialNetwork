@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/css/conversation.css">
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1>Conversation with {{ receiver.username }}</h1>
+    <ul class="message-list">
+      {% for message in messages %}
+        <li class="message-list-item">
+          <p class="message-sender">{{ message.sender.username }}</p>
+          <p class="message-content">{{ message.content }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+    <!-- <hr> -->
+    <!-- <h2>Send Message</h2> -->
+    <form class="send-message-form" method="post" action="{% url 'send_message' receiver_id=receiver.id %}">
+      {% csrf_token %}
+      <textarea name="content" placeholder="Type your message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+{% endblock %}

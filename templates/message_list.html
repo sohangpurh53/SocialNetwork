@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/css/msglist.css">
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="message-list-container">
+    <h1 class="message-list-heading">Messages</h1>
+    <ul class="message-list">
+      {% for user in users %}
+        <li class="message-list-item">
+          <img class="profile" src="{{user.userprofile.profile_picture.url}}" alt="">
+          <a href="{% url 'conversation' receiver_id=user.id %}" class="message-list-link">
+            <span class="message-list-username">{{ user.username }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

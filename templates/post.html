@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/css/post.css">
+<div class="container">
+    <div class="feed">
+      {% for post in posts %}
+      <div class="post">
+        <div class="post-header">
+          <img src="{{ post.author.profile_picture }}" alt="{{ post.author.username }}" class="avatar">
+          <a href="{{ post.author.profile_url }}" class="username">{{ post.author.username }}</a>
+          <div class="options">
+            <button class="option-button"></button>
+          </div>
+        </div>
+        <img src="http://127.0.0.1:8000/{{post.post_image}}" alt="{{ post.title }}" class="post-image">
+        <div class="post-actions">
+          <div class="left-actions">
+            <button class="action-button like-button fa fa-thumbs-up" data-post-id="{{ post.id }}" data-action="like"></button>
+            <button class="action-button dislike-button fa fa-thumbs-down" data-post-id="{{ post.id }}" data-action="dislike"></button>
+          </div>
+          <div class="right-actions">
+            <button class="action-button"></button>
+          </div>
+        </div>
+        <div class="post-details">
+          <div class="likes">
+            <span class="like-count">{{ post.likes_count }}</span> likes
+            <span class="dislike-count">{{ post.dislikes_count }}</span> dislikes
+          </div>
+          <div class="caption">
+            <a href="{{ post.author.profile_url }}" class="username">{{ post.author.username }}</a>
+            <span class="description">{{ post.description }}</span>
+          </div>
+          <div class="comments">
+            <a href="{{ post.comments_url }}" class="view-comments">View all comments ({{ post.comments_count }})</a>
+            <div class="comment">
+              <a href="{{ comment.author.profile_url }}" class="username">{{ comment.author.username }}</a>
+              <span class="comment-text">{{ comment.text }}</span>
+            </div>
+            <!-- Add more comments here if needed -->
+          </div>
+          <div class="time">{{ post.created_at }}</div>
+          <div class="add-comment">
+            <input type="text" placeholder="Add a comment..." class="comment-input">
+            <button class="comment-button">Post</button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endblock %}

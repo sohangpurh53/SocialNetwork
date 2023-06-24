@@ -1,0 +1,46 @@
+/* Add the necessary styles to match the Instagram messenger design */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #262626;
+  font-weight: 600;
+}
+
+li a:hover {
+  color: #3897f0;
+}
+
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.username {
+  font-size: 16px;
+}
+
+/* .profile{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+} */

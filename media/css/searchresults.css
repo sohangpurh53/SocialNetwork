@@ -1,0 +1,93 @@
+/* CSS for Search Results Page */
+
+.container {
+  margin: 20px auto;
+  max-width: max-content;
+}
+
+.heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.posts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card-text span {
+  font-weight: bold;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+}
+
+.empty-message {
+  font-style: italic;
+  color: #888;
+  text-align: center;
+}
+
+.users-container {
+  margin-top: 30px;
+}
+
+.user-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-card .card-body {
+  padding: 10px;
+}
+
+.user-card .card-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.profile-photo{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}

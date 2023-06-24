@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/css/profile.css">
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="profile">
+    {% if profile.profile_picture %}
+      <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+    {% endif %}
+    <h1>{{ user.username }}</h1>
+    <b>{{ profile.bio }}</b>
+    <a class="followerlist" href="{% url 'follow_list' username=user.username %}"><p>Followers: {{ followers }}</p></a>
+    <a class="followerlist" href="{% url 'following_list' username=user.username %}"><p>Following: {{ following }}</p></a>
+    
+
+    {% if follow_status == 'following' or user == request.user %}
+      {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      
+      {% if user == request.user %}
+        <!-- <p>This is your own profile.</p> -->
+      {% else %}
+        <p>You are following this user</p>
+        <a class="Unfollow" href="{% url 'unfollow_user' username=user.username %}">Unfollow</a>
+      {% endif %}
+      
+      <div class="post-list">
+        {% for post in posts %}
+          <div class="post">
+            <a href="{% url 'post_detail' post_id=post.id %}">
+              <img src="{{ post.image.url }}" alt="Post Image" class="post-image">
+            </a> 
+            {{ post.user.username }} {{ post.caption }} <br><span class="date">{{ post.created_at }}</span>
+            <div class="post-actions">
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+    {% elif follow_status != 'none' %}
+      <!-- <p>You have received a follow request from this user</p> -->
+     <p>You have requested to follow</p> 
+      
+    {% else %}
+      <p>You are not following this user</p>
+      <a class="Follow" href="{% url 'follow_user' username=user.username %}">Follow</a>
+    {% endif %}
+  </div>
+{% endblock %}

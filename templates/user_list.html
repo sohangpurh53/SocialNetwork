@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/css/followuser.css">
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="user-list">
+    <h1>Follow Requests</h1>
+    <ul>
+      {% for user in users %}
+        <li class="user-item">
+          <div class="user-profile">
+           <a href="{% url 'profile' username=user.username %}">
+            {% if user.userprofile.profile_picture %}   <img src="{{ user.userprofile.profile_picture.url }}" alt="{{ user.username }}">{% endif %}
+            </a>
+            <a href="{% url 'profile' username=user.username %}">
+              <span class="username">{{ user.username }}</span>
+            </a>
+          </div>
+          <div class="follow-actions">
+            {% if user != request.user %}
+              {% if user.following.all %}
+              <a href="{% url 'follow_user' username=user.username %}" class="btn-follow">
+                Follow
+                </a>
+              {% else %}
+                <a href="{% url 'follow_user' username=user.username %}" class="btn-follow">
+                  Follow
+                </a>
+              {% endif %}
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

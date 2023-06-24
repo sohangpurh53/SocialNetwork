@@ -1,0 +1,22 @@
+<!-- follower_list.html -->
+<link rel="stylesheet" href="/css/followandfollowin.css">
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>{{ user.username }}'s Followers</h2>
+    <hr>
+    {% if followers %}
+      <div class="list-group">
+        {% for follower in followers %}
+          <a href="{% url 'profile' follower.follower.username %}" class="list-group-item list-group-item-action">
+            <img src="{{ follower.follower.userprofile.profile_picture.url }}" alt="Profile Picture" class="rounded-circle" width="40" height="40">
+            <span class="ms-2">{{ follower.follower.username }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-muted">No followers found.</p>
+    {% endif %}
+  </div>
+{% endblock %}

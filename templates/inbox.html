@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/css/inbox.css">
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Inbox</h2>
+  <ul class="conversation-list">
+    {% for conversation in conversations %}
+      <li class="conversation">
+        <a href="{% url 'messaging:conversation' receiver_id=conversation.receiver %}">
+          <div class="conversation-info">
+            <h3>{{ conversation.receiver.username }}</h3>
+            <p class="latest-message">{{ conversation.latest_message|date:"F j, Y, P" }}</p>
+          </div>
+        </a>
+      </li>
+    {% empty %}
+      <li class="no-conversations">No conversations found.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

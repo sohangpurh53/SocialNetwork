@@ -1,0 +1,85 @@
+.post-list {
+  margin-top: 2%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  grid-gap: 20px;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.post img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.post-actions button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.post-actions .btn-like,
+.post-actions .btn-dislike {
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.btn-comment {
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.btn-comment:hover {
+  text-decoration: underline;
+}
+
+.post .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.btn-following{
+  text-decoration: none;
+}
+
+
+.Unfollow{
+  text-decoration: none;
+  background-color: #f44336;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+.Follow{
+  text-decoration: none;
+  background-color: #337ab7;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}

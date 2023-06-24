@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="/css/postdetail.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+{% extends 'base.html' %}
+<link rel="stylesheet" href="/css/postdetail.css">
+{% block content %}
+  <div class="post-detail">
+    <img src="{{ post.image.url }}" alt="Post Image" class="post-image">
+      <h3> {{post.user.username}} - {{post.caption}}</h3>
+    <div class="post-actions">
+      {% if user.is_authenticated %}
+        <form action="{% url 'like_post' post_id=post.id %}" method="POST" class="like-form">
+          {% csrf_token %}
+          {% if user in likes %}
+            <button type="submit" class="btn-dislike">Dislike</button>
+          {% else %}
+          <span class="like-count">{{ likes.count }}</span>   <button type="submit" class="btn-like"><i class="fa fa-thumbs-up"></i></button>
+          {% endif %}
+        </form>
+      {% endif %}
+      <!-- <a href="#" class="btn-comment">Comments</a> -->
+      {% if likes %}
+        <ul>
+          {% for like in likes %}
+            {% if forloop.counter <= 2 %}
+              <li>{{ like.user.username }} liked </li>
+            {% endif %}
+          {% endfor %}
+          {% if likes.count > 2 %}
+            <li>+{{ likes.count|add:"-2" }} others liked this post</li>
+          {% endif %} 
+         
+        </ul>
+      {% else %}
+        <p>No likes yet.</p>
+      {% endif %}
+     
+    </div>
+  </div>
+  
+  <div class="comments-section">
+    <h2>Comments:</h2>
+    <ul>
+      {% for comment in comments %}
+        <li>{{ comment.user.username }}: {{ comment.text }}</li>
+        <span class="date">{{ comment.created_at }}</span>
+      {% empty %}
+        <li>No comments yet.</li>
+      {% endfor %}
+    </ul>
+    
+    {% if user.is_authenticated %}
+      <form action="{% url 'add_comment' post_id=post.id %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="comment" placeholder="Add a comment...">
+        <button type="submit" class="btn-comment">Post</button>
+      </form>
+    {% else %}
+      <p>Login to add a comment.</p>
+    {% endif %}
+  </div>
+
+  
+
+{% endblock %}

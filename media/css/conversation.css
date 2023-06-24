@@ -1,0 +1,78 @@
+/* Styles for the container */
+.container {
+  max-width: 600px;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: #ccc 5px 5px 2px;
+ 
+
+}
+
+/* Styles for the conversation header */
+.container h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Styles for the message list */
+.message-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.message-list-item {
+  margin-bottom: 10px;
+}
+
+/* Styles for the message sender */
+.message-sender {
+  font-weight: bold;
+  margin-bottom: 5px;
+
+}
+
+/* Styles for the message content */
+.message-content {
+  margin: 0;
+  background-color: lightgray;
+  text-align: center;
+  border-radius: 5px;
+  width: 20%;
+  height: 3%;
+  
+}
+
+/* Styles for the send message form */
+.send-message-form {
+  margin-top: 30px;
+}
+
+.send-message-form textarea {
+  width: 40%;
+  height: 50px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+  margin-bottom: -18px;
+  margin-right: 2px;
+}
+
+.send-message-form button {
+  background-color: #3897f0;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+.send-message-form button:hover {
+  background-color: #3182d6;
+}

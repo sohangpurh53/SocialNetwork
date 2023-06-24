@@ -1,0 +1,97 @@
+.message-list {
+    margin-top: 20px;
+  }
+  
+  .message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .message-sender {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-picture {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .message-sender p {
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .message-content {
+    background-color: #EFEFEF;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .message-content p {
+    margin: 0;
+  }
+  
+  .timestamp {
+    color: #999999;
+    font-size: 12px;
+  }
+  
+  .message-form {
+    margin-top: 20px;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    resize: none;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  button {
+    background-color: #3897f0;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #3366cc;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #999999;
+  }
+  
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #999999;
+    opacity: 1;
+  }
+  
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #999999;
+    opacity: 1;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #999999;
+  }
+  
+  ::placeholder { /* Modern browsers */
+    color: #999999;
+  }
+  

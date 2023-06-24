@@ -1,0 +1,33 @@
+<nav class="navbar">
+ <link rel="stylesheet" href="/css/navbar.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+ 
+  </div>
+  <ul class="navbar-menu">
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <!-- <li><a href="">Profile</a></li> -->
+    <li><a href="{% url 'message_list' %}">Messages</a></li>
+    <!-- <li><a href="#">Notifications</a></li> -->
+    <li><a href="{% url 'create_post' %}">Create-Post</a></li>
+    <li><a href="{% url 'follower_list' %}">Follow Requests</a></li>
+    
+  </ul>
+  <div class="navbar-search">
+    <form action="{% url 'search_results' %}" method="GET">
+      <input type="text" name="query" placeholder="Search">
+      <button type="submit"><i class="fa fa-search"></i> Search</button>
+    </form>
+  </div>
+  
+  <div class="navbar-icons">
+{% if user.is_authenticated %}
+    <a href="{% url 'signout' %}">signout</a>
+    {% else %}
+    <a href="{% url 'signin' %}">signin</a>
+    {% endif %}
+<a href="{% url 'update_profile' %}">update profile</a>
+    <a href="{% url 'message_list' %}"><i class="fa fa-envelope"></i></a>
+    <!-- <a href="#"><i class="fa fa-bell"></i></a> -->
+    <a href="{% url 'user_list' %}">Follow</a>
+  </div>
+</nav>

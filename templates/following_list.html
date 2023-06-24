@@ -1,0 +1,22 @@
+<!-- following_list.html -->
+<link rel="stylesheet" href="/css/followandfollowin.css">
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>{{ user.username }}'s Following</h2>
+    <hr>
+    {% if following %}
+      <div class="list-group">
+        {% for follow in following %}
+          <a href="{% url 'profile' follow.following.username %}" class="list-group-item list-group-item-action">
+            <img src="{{ follow.following.userprofile.profile_picture.url }}" alt="Profile Picture" class="rounded-circle" width="40" height="40">
+            <span class="ms-2">{{ follow.following.username }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-muted">User is not following anyone.</p>
+    {% endif %}
+  </div>
+{% endblock %}

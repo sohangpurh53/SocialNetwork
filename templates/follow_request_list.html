@@ -1,0 +1,30 @@
+<!-- follow_request_list.html -->
+<link rel="stylesheet" href="/css/requestlist.css">
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h2>Follow Requests</h2>
+
+    {% if follow_requests %}
+      <ul class="follow-requests">
+        {% for request in follow_requests %}
+          <li class="follow-request">
+            <div class="profile-photo">
+              <img src="{{ request.requester.userprofile.profile_picture.url }}" alt="Profile Picture">
+            </div>
+            <div class="request-details">
+              <h3>{{ request.requester.username }} wants to follow you</h3>
+              <div class="action-buttons">
+                <a href="{% url 'accept_follow_request' requester_username=request.requester.username %}" class="btn btn-success">Accept</a>
+                <a href="{% url 'reject_follow_request' requester_username=request.requester.username %}" class="btn btn-danger">Reject</a>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No follow requests found.</p>
+    {% endif %}
+  </div>
+{% endblock %}

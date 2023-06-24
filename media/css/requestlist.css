@@ -1,0 +1,73 @@
+/* CSS for Follow Request List */
+
+.container {
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  ul.follow-requests {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .follow-request {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-photo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .request-details h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .action-buttons {
+    margin-top: 10px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border: 1px solid #28a745;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  .empty-message {
+    font-style: italic;
+    color: #888;
+    text-align: center;
+  }
+  

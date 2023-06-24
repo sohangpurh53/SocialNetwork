@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/css/signup.css">
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="signup-container">
+        <form action=" " method="post" class="signup-form">
+            {% if messages %}
+                {% for message in messages %}
+                    <h3>{{message}}</h3>
+                {% endfor %}
+            {% endif %}
+            {% csrf_token %}
+            
+            {{form.as_p}}
+            
+            <button type="submit" class="signup-button">Sign In</button>
+            
+        </form>
+        <a type="submit" href="{% url 'signup' %}" id="signup">Sign Up</a>
+    </div>
+{% endblock %}

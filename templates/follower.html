@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="/css/follow.css">
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="follower-list">
+    <h2>Followers</h2>
+    <ul>
+      {% for follow in follow_requests %}
+    <p>{{ follow.follower.username }} has requested to follow you. <a href="{% url 'accept_follow_request' follow.id %}">Accept</a> | <a href="{% url 'reject_follow_request' follow.id %}">Reject</a></p>
+{% empty %}
+    <p>No pending follow requests.</p>
+{% endfor %}
+    </ul>
+  </div>
+{% endblock %}
