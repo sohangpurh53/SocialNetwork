@@ -8,6 +8,7 @@ from django.contrib import messages
 from .forms import UserProfileForm, SignUpForm, MessageForm
 from django.db.models import Max
 from django.db.models import Q
+from django.http import HttpResponse
 
 @login_required(login_url='signin')
 def create_post(request):
@@ -242,3 +243,15 @@ def following_list(request, username):
     user = User.objects.get(username=username)
     following = Follow.objects.filter(follower=user)
     return render(request, 'following_list.html', {'user': user, 'following': following})
+
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    # Check if the current user is the owner of the post
+    if post.user == request.user:
+        post.delete()
+        return redirect('home')
+    else:
+        # Handle the case where the current user is not the owner of the post
+        # You can show an error message or redirect to an appropriate page
+        return HttpResponse("You are not authorized to delete this post.")

@@ -31,5 +31,6 @@ path('follow/reject/<str:requester_username>/', views.reject_follow_request, nam
   path('search/', views.search_results, name='search_results'),
   path('follower/<str:username>/', views.follow_list, name='follow_list'),
     path('following/<str:username>/', views.following_list, name='following_list'),
+    path('post/<int:post_id>/delete/', views.delete_post, name='delete_post'),
     
 ]

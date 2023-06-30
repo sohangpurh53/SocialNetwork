@@ -38,7 +38,9 @@
             {{ post.user.username }} {{ post.caption }} <br><span class="date">{{ post.created_at }}</span>
             <div class="post-actions">
             </div>
-          </div>
+            {% if post.user == request.user %}
+         <a class="delete" href="{% url 'delete_post'  post_id=post.id %}">delete</a> 
+         {% endif %}</div> 
         {% endfor %}
       </div>
 
@@ -50,5 +52,6 @@
       <p>You are not following this user</p>
       <a class="Follow" href="{% url 'follow_user' username=user.username %}">Follow</a>
     {% endif %}
+    
   </div>
 {% endblock %}

@@ -56,6 +56,7 @@
 }
 
 .post {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,4 +129,17 @@ font-size: larger;
 
 .followerlist{
   text-decoration: none;
+}
+
+.delete{
+  background-color: #f44336;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+ text-decoration: none;
+}
+
+.delete:hover {
+  background-color: #d32f2f;
 }
