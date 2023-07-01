@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import UserProfileForm, SignUpForm, MessageForm
+from .forms import UserProfileForm, SignUpForm, MessageForm, EditPostForm
 from django.db.models import Max
 from django.db.models import Q
 from django.http import HttpResponse
@@ -244,14 +244,41 @@ def following_list(request, username):
     following = Follow.objects.filter(follower=user)
     return render(request, 'following_list.html', {'user': user, 'following': following})
 
+@login_required(login_url='signin')
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
 
     # Check if the current user is the owner of the post
-    if post.user == request.user:
+    if post.user == request.user: 
+     if request.method == 'POST':
         post.delete()
+        messages.success(request, ('Invoice Deleted Succesfully'))
         return redirect('home')
+    context = {
+        'post': post
+    }
+    return render(request, 'delete.html', context)
+
+
+
+
+@login_required(login_url='signin')
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    # Check if the current user is the owner of the post
+    if post.user == request.user:
+        if request.method == 'POST':
+            # Update the post with the new data
+            form = EditPostForm(request.POST, request.FILES, instance=post)
+            if form.is_valid():
+                form.save()
+                return redirect('post_detail', post_id=post_id)
+        else:
+            form = EditPostForm(instance=post)
+        
+        return render(request, 'edit_post.html', {'form': form, 'post': post})
     else:
         # Handle the case where the current user is not the owner of the post
         # You can show an error message or redirect to an appropriate page
-        return HttpResponse("You are not authorized to delete this post.")
+        return HttpResponse("You are not authorized to edit this post.")

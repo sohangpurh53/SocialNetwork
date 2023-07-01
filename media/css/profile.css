@@ -138,8 +138,26 @@ font-size: larger;
   border-radius: 3px;
   cursor: pointer;
  text-decoration: none;
+ margin-left:15px ;
 }
 
 .delete:hover {
   background-color: #d32f2f;
+}
+
+.edit{
+  
+  background-color: rgb(181, 176, 176);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+ text-decoration: none;
+}
+.edit:hover {
+  background-color: rgb(155, 153, 153);
+}
+
+.buttondiv{
+  margin-top: 20px;
 }

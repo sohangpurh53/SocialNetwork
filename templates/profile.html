@@ -28,7 +28,7 @@
         <p>You are following this user</p>
         <a class="Unfollow" href="{% url 'unfollow_user' username=user.username %}">Unfollow</a>
       {% endif %}
-      
+     
       <div class="post-list">
         {% for post in posts %}
           <div class="post">
@@ -39,8 +39,11 @@
             <div class="post-actions">
             </div>
             {% if post.user == request.user %}
-         <a class="delete" href="{% url 'delete_post'  post_id=post.id %}">delete</a> 
+         <div class="buttondiv"> 
+         <a class="edit" href="{% url 'edit_post'  post_id=post.id %}">Edit</a>
+         <a class="delete" href="{% url 'delete_post'  post_id=post.id %}">delete</a> </div>
          {% endif %}</div> 
+        
         {% endfor %}
       </div>
 
