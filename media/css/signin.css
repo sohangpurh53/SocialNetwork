@@ -204,14 +204,10 @@ h3 {
   }
 }
 
-#signup{
-  width: 100%;
-  padding: 10px;
-  background-color: #1877f2;
-  border: none;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
+.register{
+  font-weight:bolder;
+  font-size: 1.2rem;
   text-decoration: none;
+  color:  #1877f2;
+  cursor: pointer;
 }
